@@ -57,7 +57,7 @@ GithubOAuthService:
 
 spring:
   datasource:
-    url: ${db.url:jdbc:mysql://localhost/authentication_server_db}
+    url: ${db.url:jdbc:opengauss://ip:port/postgres?currentSchema=authentication_server_db} # WARNING: please change ip and port
     username: ${db.username:root}
     password: ${db.password:root}
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: com.huawei.opengauss.jdbc.Driver
