@@ -90,8 +90,7 @@
       <docker.image>docker_storage</docker.image>
   </properties>
   
-  </build>
-      <build>
+  <build>
         <finalName>authentication-server</finalName>
         <plugins>
             <plugin>
