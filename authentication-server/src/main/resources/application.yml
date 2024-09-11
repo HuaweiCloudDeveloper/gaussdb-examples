@@ -49,7 +49,7 @@ servicecomb:
       clientSecret: b139dbc8fe8be9153f68049bfa8387dfde33f1c9 # WARNING: change to your github client secret
 
 db:
-  password: root # WARNING: please change password in production environment
+  password: CzqChang123! # WARNING: please change password in production environment
 
 GithubOAuthService:
   urls:
@@ -57,7 +57,7 @@ GithubOAuthService:
 
 spring:
   datasource:
-    url: ${db.url:jdbc:opengauss://ip:port/postgres?currentSchema=authentication_server_db} # WARNING: please change ip and port
+    url: ${db.url:jdbc:opengauss://192.168.0.190:8000/postgres?currentSchema=authentication_server_db} # WARNING: please change ip and port
     username: ${db.username:root}
     password: ${db.password:root}
     driver-class-name: org.opengauss.Driver
