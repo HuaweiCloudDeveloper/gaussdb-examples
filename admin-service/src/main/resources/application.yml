@@ -24,11 +24,11 @@ servicecomb:
   registry:
     zk:
       enabled: true
-      connectString: 10.0.0.30:2181
+      connectString: 10.0.1.138:2181
   config:
     zk:
       enabled: true
-      connectString: 10.0.0.30:2181
+      connectString: 10.0.1.138:2181
 
   rest:
     address: 0.0.0.0:9096
