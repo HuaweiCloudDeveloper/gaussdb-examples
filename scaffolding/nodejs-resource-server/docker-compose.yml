@@ -1,0 +1,25 @@
+version: '1'
+services:
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    networks:
+      - my-network
+
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - my-network
+    environment:
+      - NODE_ENV=production
+
+networks:
+  my-network:
+    driver: bridge

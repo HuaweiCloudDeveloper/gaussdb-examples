@@ -1,0 +1,36 @@
+### Create a new Tutorial
+POST http://124.70.78.27:8080/api/tutorials
+Content-Type: application/json
+
+{
+    "title": "TypeScript ORM GaussDB Example",
+    "description": "This is a simple example of using Sequelize with GaussDB"
+}
+
+### Retrieve all Tutorials
+GET http://localhost:8080/api/tutorials
+
+
+### Retrieve a single Tutorial by id
+GET http://localhost:8080/api/tutorials/5
+
+### Update a Tutorial by id
+PUT http://localhost:8080/api/tutorials/1
+Content-Type: application/json
+
+{
+    "title": "TypeScript ORM GaussDB Example (Updated)",
+    "description": "This is a simple example of using Sequelize with GaussDB"
+}
+
+### Find all Tutorials which title contains ‘xxx’
+GET http://localhost:8080/api/tutorials?title=GaussDB
+
+### Find all published Tutorials
+GET http://localhost:8080/api/tutorials/published
+
+### Delete a Tutorial
+DELETE http://localhost:8080/api/tutorials/1
+
+### Delete all Tutorials
+DELETE http://localhost:8080/api/tutorials

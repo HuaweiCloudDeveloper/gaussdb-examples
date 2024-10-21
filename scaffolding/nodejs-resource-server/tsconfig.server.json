@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+      "target": "es2016",
+      "experimentalDecorators": true,                   /* Enable experimental support for legacy experimental decorators. */
+      "emitDecoratorMetadata": true,  
+      "module": "commonjs",
+      "resolveJsonModule": true, 
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "outDir": "./build"
+    },
+    "include": ["src/server/"],
+    "exclude": ["node_modules"],
+    
+  }
+  

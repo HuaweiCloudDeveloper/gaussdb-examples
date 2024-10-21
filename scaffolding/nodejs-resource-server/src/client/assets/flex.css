@@ -1,0 +1,66 @@
+/* 通过属性选择器实现主轴对齐方式 */
+[class*='flex'] {
+  display: flex !important;
+  display: -webkit-flex !important;
+
+  &[class*='-center'] {
+    justify-content: center;
+  }
+
+  &[class*='-center-all'] {
+    justify-content: center;
+    align-items: center;
+  }
+
+  &[class*='-start'] {
+    justify-content: flex-start;
+  }
+
+  &[class*='-end'] {
+    justify-content: flex-end;
+  }
+
+  &[class*='-between'] {
+    justify-content: space-between;
+  }
+
+  &[class*='-around'] {
+    justify-content: space-around;
+  }
+
+  &[class*='-column'] {
+    flex-direction: column;
+  }
+
+  &[class*='-row'] {
+    flex-direction: row;
+  }
+
+  &[class*='-wrap'] {
+    flex-wrap: wrap;
+  }
+
+  &[class*='-nowrap'] {
+    flex-wrap: nowrap;
+  }
+
+  &[class*='-items-start'] {
+    align-items: flex-start;
+  }
+
+  &[class*='-items-end'] {
+    align-items: flex-end;
+  }
+
+  &[class*='-items-center'] {
+    align-items: center;
+  }
+
+  &[class*='-items-baseline'] {
+    align-items: baseline;
+  }
+
+  &[class*='-items-stretch'] {
+    align-items: stretch;
+  }
+}
