@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: edge
+data:
+  # kv format
+  ZK_ADDRESS: "zookeeper:2181"
+
