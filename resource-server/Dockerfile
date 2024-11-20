@@ -1,5 +1,4 @@
 FROM openjdk:17-alpine
-LABEL authors="wmwei"
 RUN mkdir -p /opt
 COPY target/resource-server-0.0.1-SNAPSHOT.jar /opt
 WORKDIR /opt
