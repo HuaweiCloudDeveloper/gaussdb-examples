@@ -102,10 +102,12 @@
     <dependency>
       <groupId>org.apache.servicecomb</groupId>
       <artifactId>registry-zookeeper</artifactId>
+      <version>3.5.5</version>
     </dependency>
     <dependency>
       <groupId>org.apache.servicecomb</groupId>
       <artifactId>config-zookeeper</artifactId>
+      <version>3.5.5</version>
     </dependency>
     <!-- using log4j2 -->
     <dependency>
