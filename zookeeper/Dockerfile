@@ -20,7 +20,11 @@ RUN set -eux; \
     mkdir -p "$ZOO_DATA_LOG_DIR" "$ZOO_DATA_DIR" "$ZOO_CONF_DIR" "$ZOO_LOG_DIR"; \
     chown zookeeper:zookeeper "$ZOO_DATA_LOG_DIR" "$ZOO_DATA_DIR" "$ZOO_CONF_DIR" "$ZOO_LOG_DIR"
 
-RUN set -eux; apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C
+#add key
+COPY mykey /
+RUN set -eux;  apt-key add \mykey;
+
+#RUN set -eux; apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C
 
 # Install required packges
 RUN set -eux; \
