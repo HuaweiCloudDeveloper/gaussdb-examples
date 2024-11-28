@@ -24,7 +24,7 @@ RUN sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC9
 
 # Install required packges
 RUN set -eux; \
-    apt-get update --allow-unauthenticated ; \
+    apt-get update; \
     DEBIAN_FRONTEND=noninteractive \
     apt-get install -y --no-install-recommends \
         ca-certificates \
