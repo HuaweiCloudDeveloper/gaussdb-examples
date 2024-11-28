@@ -22,7 +22,7 @@ RUN set -eux; \
 
 # Install required packges
 RUN set -eux; \
-    apt-get update; \
+    apt-get update --allow-unauthenticated ; \
     DEBIAN_FRONTEND=noninteractive \
     apt-get install -y --no-install-recommends \
         ca-certificates \
