@@ -1,4 +1,5 @@
-FROM eclipse-temurin:17-jre-jammy
+FROM openjdk:17.0.2-oracle
+#FROM eclipse-temurin:17-jre-jammy
 
 ENV ZOO_CONF_DIR=/conf \
     ZOO_DATA_DIR=/data \
@@ -20,8 +21,8 @@ RUN set -eux; \
     mkdir -p "$ZOO_DATA_LOG_DIR" "$ZOO_DATA_DIR" "$ZOO_CONF_DIR" "$ZOO_LOG_DIR"; \
     chown zookeeper:zookeeper "$ZOO_DATA_LOG_DIR" "$ZOO_DATA_DIR" "$ZOO_CONF_DIR" "$ZOO_LOG_DIR"
 
-USER 0
-RUN set -eux; apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C;
+#USER 0
+#RUN set -eux; apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C;
 
 # Install required packges
 RUN set -eux; \
