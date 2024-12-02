@@ -20,10 +20,6 @@ RUN set -eux; \
     mkdir -p "$ZOO_DATA_LOG_DIR" "$ZOO_DATA_DIR" "$ZOO_CONF_DIR" "$ZOO_LOG_DIR"; \
     chown zookeeper:zookeeper "$ZOO_DATA_LOG_DIR" "$ZOO_DATA_DIR" "$ZOO_CONF_DIR" "$ZOO_LOG_DIR"
 
-ARG GPG_KEY=3F7A1D16FA4217B1DC75E1C9FFE35B7F15DFA1BA
-ARG SHORT_DISTRO_NAME=zookeeper-3.9.3
-ARG DISTRO_NAME=apache-zookeeper-3.9.3-bin
-
 # Install required packges
 RUN set -eux; \
     apt-get update; \
@@ -39,7 +35,9 @@ RUN set -eux; \
 # Verify that gosu binary works
     gosu nobody true
 
-
+ARG GPG_KEY=3F7A1D16FA4217B1DC75E1C9FFE35B7F15DFA1BA
+ARG SHORT_DISTRO_NAME=zookeeper-3.9.3
+ARG DISTRO_NAME=apache-zookeeper-3.9.3-bin
 
 # Download Apache Zookeeper, verify its PGP signature, untar and clean up
 RUN set -eux; \
