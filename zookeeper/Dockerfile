@@ -1,4 +1,3 @@
-[root@localhost ~]# cat dockerfile
 FROM openjdk:8-jre-alpine
  
 # Install required packages
