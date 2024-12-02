@@ -1,4 +1,4 @@
-FROM openjdk:17.0.2-oracle
+FROM openjdk:8-jre-alpine
 #FROM eclipse-temurin:17-jre-jammy
 
 ENV ZOO_CONF_DIR=/conf \
