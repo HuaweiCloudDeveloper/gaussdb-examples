@@ -101,11 +101,11 @@
     <!-- using zookeeper -->
     <dependency>
       <groupId>org.apache.servicecomb</groupId>
-      <artifactId>registry-zookeeper</artifactId>      
+      <artifactId>registry-zookeeper</artifactId>
     </dependency>
     <dependency>
       <groupId>org.apache.servicecomb</groupId>
-      <artifactId>config-zookeeper</artifactId>      
+      <artifactId>config-zookeeper</artifactId> 
     </dependency>
     <!-- using log4j2 -->
     <dependency>
