@@ -54,7 +54,7 @@ GithubOAuthService:
 
 spring:
   datasource:
-    url: ${DB_URL:jdbc:opengauss://10.0.1.138:8000/one?currentSchema=authentication_server_db}
+    url: ${DB_URL:jdbc:opengauss://121.37.225.143:8000/one?currentSchema=authentication_server_db}
     username: ${DB_USERNAME:root}
     password: ${DB_PASSWORD:Flyvideo1}
     driver-class-name: org.opengauss.Driver

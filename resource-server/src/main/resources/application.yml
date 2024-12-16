@@ -54,10 +54,10 @@ servicecomb:
         needAuth: false
 spring:
   datasource:
-    url: ${DB_URL:jdbc:mysql://127.0.0.1:3306/authentication_server_db?characterEncoding=utf8&useSSL=false}
+    url: ${DB_URL:jdbc:opengauss://121.37.225.143:8000/one?currentSchema=authentication_server_db}
     username: ${DB_USERNAME:root}
-    password: ${DB_PASSWORD:root}
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: ${DB_PASSWORD:Flyvideo1}
+    driver-class-name: org.opengauss.Driver
 mybatis:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
