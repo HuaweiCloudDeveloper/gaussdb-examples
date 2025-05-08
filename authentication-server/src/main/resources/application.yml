@@ -54,7 +54,7 @@ GithubOAuthService:
 
 spring:
   datasource:
-    url: ${DB_URL:jdbc:opengauss://127.0.0.1:8000/postgres?currentSchema=authentication_server_db}
-    username: ${DB_USERNAME:root}
-    password: ${DB_PASSWORD:root}
-    driver-class-name: org.opengauss.Driver
+    url: ${DB_URL:jdbc:gaussdb://127.0.0.1:8000/postgres?currentSchema=authentication_server_db}
+    username: ${DB_USERNAME:GaussdbExamples}
+    password: ${DB_PASSWORD:Gaussdb-Examples-123}
+    driver-class-name: com.huawei.gaussdb.jdbc.Driver
