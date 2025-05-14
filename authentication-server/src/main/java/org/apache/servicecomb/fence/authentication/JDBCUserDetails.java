@@ -20,8 +20,10 @@ package org.apache.servicecomb.fence.authentication;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
-import org.apache.servicecomb.fence.authentication.user.UserInfo;
+import org.apache.servicecomb.fence.authentication.user.Role;
+import org.apache.servicecomb.fence.authentication.user.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -29,17 +31,19 @@ import org.springframework.security.core.userdetails.UserDetails;
 public class JDBCUserDetails implements UserDetails {
   private static final long serialVersionUID = -8279248170258388057L;
 
-  private UserInfo info;
+  private User info;
 
-  public JDBCUserDetails(UserInfo info) {
+  private Set<String> roleNames;
+
+  public JDBCUserDetails(User info, Set<Role> roles) {
     this.info = info;
+    roleNames = roles.stream().map(Role::getRoleName).collect(Collectors.toSet());
   }
 
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
-    Set<String> roles = info.getRoles();
-    Set<SimpleGrantedAuthority> grantedAuthorities = new HashSet<>(roles.size());
-    roles.forEach(r -> grantedAuthorities.add(new SimpleGrantedAuthority(r)));
+    Set<SimpleGrantedAuthority> grantedAuthorities = new HashSet<>(roleNames.size());
+    roleNames.forEach(r -> grantedAuthorities.add(new SimpleGrantedAuthority(r)));
     return grantedAuthorities;
   }
 
@@ -50,7 +54,7 @@ public class JDBCUserDetails implements UserDetails {
 
   @Override
   public String getUsername() {
-    return info.getUsername();
+    return info.getUserName();
   }
 
   @Override

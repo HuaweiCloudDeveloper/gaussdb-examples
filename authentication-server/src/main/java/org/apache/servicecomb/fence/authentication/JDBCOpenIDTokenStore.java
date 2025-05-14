@@ -19,10 +19,11 @@ package org.apache.servicecomb.fence.authentication;
 
 import java.util.concurrent.CompletableFuture;
 
+import org.apache.servicecomb.fence.authentication.user.Token;
+import org.apache.servicecomb.fence.authentication.user.TokenRepository;
 import org.apache.servicecomb.fence.jwt.JsonParser;
 import org.apache.servicecomb.fence.token.AbstractOpenIDTokenStore;
 import org.apache.servicecomb.fence.token.OpenIDToken;
-import org.apache.servicecomb.fence.authentication.user.TokenMapper;
 import org.apache.servicecomb.fence.util.CommonConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -30,13 +31,13 @@ import org.springframework.stereotype.Component;
 @Component(CommonConstants.BEAN_AUTH_OPEN_ID_TOKEN_STORE)
 public class JDBCOpenIDTokenStore extends AbstractOpenIDTokenStore {
   @Autowired
-  private TokenMapper tokenMapper;
+  private TokenRepository tokenRepository;
 
   @Override
   public CompletableFuture<OpenIDToken> readTokenByAccessToken(String value) {
     CompletableFuture<OpenIDToken> result = new CompletableFuture<>();
 
-    String tokenInfo = tokenMapper.getTokenInfoByAccessTokenId(value);
+    String tokenInfo = tokenRepository.getTokenInfoByAccessTokenId(value);
     if (tokenInfo != null) {
       result.complete(JsonParser.parse(tokenInfo, OpenIDToken.class));
     }
@@ -46,7 +47,7 @@ public class JDBCOpenIDTokenStore extends AbstractOpenIDTokenStore {
 
   @Override
   public OpenIDToken readTokenByRefreshToken(String refreshTokenValue) {
-    String tokenInfo = tokenMapper.getTokenInfoByRefreshTokenId(refreshTokenValue);
+    String tokenInfo = tokenRepository.getTokenInfoByRefreshTokenId(refreshTokenValue);
     if (tokenInfo != null) {
       return JsonParser.parse(tokenInfo, OpenIDToken.class);
     }
@@ -55,9 +56,10 @@ public class JDBCOpenIDTokenStore extends AbstractOpenIDTokenStore {
 
   @Override
   public void saveToken(OpenIDToken token) {
-    tokenMapper.insertNewToken(token.getValue(),
-        token.getRefreshToken().getValue(),
-        JsonParser.unparse(token));
+    Token entity = new Token();
+    entity.setAccessTokenValue(token.getValue());
+    entity.setRefreshTokenValue(token.getRefreshToken().getValue());
+    entity.setToken(JsonParser.unparse(token));
+    tokenRepository.save(entity);
   }
-
 }

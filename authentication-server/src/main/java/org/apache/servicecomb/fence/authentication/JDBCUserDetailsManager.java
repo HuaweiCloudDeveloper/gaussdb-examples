@@ -17,8 +17,9 @@
 
 package org.apache.servicecomb.fence.authentication;
 
-import org.apache.servicecomb.fence.authentication.user.UserInfo;
-import org.apache.servicecomb.fence.authentication.user.UserMapper;
+import org.apache.servicecomb.fence.authentication.user.RoleRepository;
+import org.apache.servicecomb.fence.authentication.user.User;
+import org.apache.servicecomb.fence.authentication.user.UserRepository;
 import org.apache.servicecomb.fence.util.CommonConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -30,16 +31,19 @@ import org.springframework.stereotype.Component;
 public class JDBCUserDetailsManager implements UserDetailsManager {
 
   @Autowired
-  private UserMapper userMapper;
+  private UserRepository userRepository;
+
+  @Autowired
+  private RoleRepository roleRepository;
 
   @Override
   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-    UserInfo info = userMapper.selectUserByUsername(username);
+    User info = userRepository.selectUserByUsername(username);
     if (info == null) {
       throw new UsernameNotFoundException("");
     }
-    info.setRoles(userMapper.selectRolesByUsername(username));
-    return new JDBCUserDetails(info);
+
+    return new JDBCUserDetails(info, roleRepository.selectRolesByUsername(username));
   }
 
   @Override

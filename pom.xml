@@ -63,17 +63,50 @@
         <version>1.0.7.RELEASE</version>
       </dependency>
 
-      <!-- mybatis -->
+      <!-- spring data jdbc -->
       <dependency>
-        <groupId>org.mybatis.spring.boot</groupId>
-        <artifactId>mybatis-spring-boot-starter</artifactId>
+        <groupId>org.springframework.data</groupId>
+        <artifactId>spring-data-jdbc</artifactId>
         <exclusions>
           <exclusion>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-logging</artifactId>
           </exclusion>
         </exclusions>
-        <version>3.0.3</version>
+        <version>3.5.0-RC1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.data</groupId>
+        <artifactId>spring-data-commons</artifactId>
+        <exclusions>
+          <exclusion>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+          </exclusion>
+        </exclusions>
+        <version>3.5.0-RC1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.data</groupId>
+        <artifactId>spring-data-relational</artifactId>
+        <exclusions>
+          <exclusion>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+          </exclusion>
+        </exclusions>
+        <version>3.5.0-RC1</version>
+      </dependency>
+      <dependency>
+        <groupId>com.huaweicloud.gaussdb</groupId>
+        <artifactId>gaussdb-spring-data-jdbc</artifactId>
+        <exclusions>
+          <exclusion>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+          </exclusion>
+        </exclusions>
+        <version>3.5.0.RC1</version>
       </dependency>
       <dependency>
         <groupId>com.huaweicloud.gaussdb</groupId>
