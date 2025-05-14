@@ -62,7 +62,7 @@
     </dependency>
     <dependency>
       <groupId>com.huaweicloud.gaussdb</groupId>
-      <artifactId>gaussdbjdbc</artifactId>
+      <artifactId>gaussdb-r2dbc</artifactId>
     </dependency>
     <dependency>
       <groupId>org.apache.commons</groupId>
@@ -70,15 +70,15 @@
     </dependency>
     <dependency>
       <groupId>org.springframework.data</groupId>
-      <artifactId>spring-data-jdbc</artifactId>
+      <artifactId>spring-data-r2dbc</artifactId>
     </dependency>
     <dependency>
       <groupId>com.huaweicloud.gaussdb</groupId>
-      <artifactId>gaussdb-spring-data-jdbc</artifactId>
+      <artifactId>gaussdb-spring-data-r2dbc</artifactId>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
-      <artifactId>spring-jdbc</artifactId>
+      <artifactId>spring-r2dbc</artifactId>
       <scope>compile</scope>
     </dependency>
     <dependency>

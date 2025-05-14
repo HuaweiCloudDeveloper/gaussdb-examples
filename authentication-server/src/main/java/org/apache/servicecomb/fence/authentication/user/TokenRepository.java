@@ -1,16 +1,18 @@
 package org.apache.servicecomb.fence.authentication.user;
 
-import org.springframework.data.jdbc.repository.query.Query;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.r2dbc.repository.Query;
+import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 
-public interface TokenRepository extends CrudRepository<Token, String> {
+import reactor.core.publisher.Mono;
+
+public interface TokenRepository extends ReactiveCrudRepository<Token, String> {
   @Query("""
       select token
       from t_tokens where access_token_value = :accessTokenValue""")
-  String getTokenInfoByAccessTokenId(String accessTokenValue);
+  Mono<String> getTokenInfoByAccessTokenId(String accessTokenValue);
 
   @Query("""
       select token
       from t_tokens where refresh_token_value = :refreshTokenValue""")
-  String getTokenInfoByRefreshTokenId(String refreshTokenValue);
+  Mono<String> getTokenInfoByRefreshTokenId(String refreshTokenValue);
 }

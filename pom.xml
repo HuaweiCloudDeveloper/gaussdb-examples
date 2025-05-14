@@ -63,10 +63,10 @@
         <version>1.0.7.RELEASE</version>
       </dependency>
 
-      <!-- spring data jdbc -->
+      <!-- spring data r2dbc -->
       <dependency>
-        <groupId>org.springframework.data</groupId>
-        <artifactId>spring-data-jdbc</artifactId>
+        <groupId>org.springframework.boot.starter</groupId>
+        <artifactId>spring-boot-starter-data-r2dbc</artifactId>
         <exclusions>
           <exclusion>
             <groupId>org.springframework.boot</groupId>
@@ -99,7 +99,7 @@
       </dependency>
       <dependency>
         <groupId>com.huaweicloud.gaussdb</groupId>
-        <artifactId>gaussdb-spring-data-jdbc</artifactId>
+        <artifactId>gaussdb-spring-data-r2dbc</artifactId>
         <exclusions>
           <exclusion>
             <groupId>org.springframework.boot</groupId>
@@ -110,8 +110,8 @@
       </dependency>
       <dependency>
         <groupId>com.huaweicloud.gaussdb</groupId>
-        <artifactId>gaussdbjdbc</artifactId>
-        <version>506.0.0.b058</version>
+        <artifactId>gaussdb-r2dbc</artifactId>
+        <version>1.0.0.RC1</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

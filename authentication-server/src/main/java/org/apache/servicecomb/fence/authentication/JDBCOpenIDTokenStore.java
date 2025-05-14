@@ -37,7 +37,7 @@ public class JDBCOpenIDTokenStore extends AbstractOpenIDTokenStore {
   public CompletableFuture<OpenIDToken> readTokenByAccessToken(String value) {
     CompletableFuture<OpenIDToken> result = new CompletableFuture<>();
 
-    String tokenInfo = tokenRepository.getTokenInfoByAccessTokenId(value);
+    String tokenInfo = tokenRepository.getTokenInfoByAccessTokenId(value).block();
     if (tokenInfo != null) {
       result.complete(JsonParser.parse(tokenInfo, OpenIDToken.class));
     }
@@ -47,7 +47,7 @@ public class JDBCOpenIDTokenStore extends AbstractOpenIDTokenStore {
 
   @Override
   public OpenIDToken readTokenByRefreshToken(String refreshTokenValue) {
-    String tokenInfo = tokenRepository.getTokenInfoByRefreshTokenId(refreshTokenValue);
+    String tokenInfo = tokenRepository.getTokenInfoByRefreshTokenId(refreshTokenValue).block();
     if (tokenInfo != null) {
       return JsonParser.parse(tokenInfo, OpenIDToken.class);
     }

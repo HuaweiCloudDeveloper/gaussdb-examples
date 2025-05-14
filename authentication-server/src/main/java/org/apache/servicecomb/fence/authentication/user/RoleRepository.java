@@ -1,11 +1,11 @@
 package org.apache.servicecomb.fence.authentication.user;
 
-import java.util.Set;
+import org.springframework.data.r2dbc.repository.Query;
+import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 
-import org.springframework.data.jdbc.repository.query.Query;
-import org.springframework.data.repository.CrudRepository;
+import reactor.core.publisher.Flux;
 
-public interface RoleRepository extends CrudRepository<Role, String> {
+public interface RoleRepository extends ReactiveCrudRepository<Role, String> {
   @Query("select * from t_roles where user_name = :userName")
-  Set<Role> selectRolesByUsername(String userName);
+  Flux<Role> selectRolesByUsername(String userName);
 }

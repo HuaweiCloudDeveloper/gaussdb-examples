@@ -17,6 +17,8 @@
 
 package org.apache.servicecomb.fence.authentication;
 
+import java.util.HashSet;
+
 import org.apache.servicecomb.fence.authentication.user.RoleRepository;
 import org.apache.servicecomb.fence.authentication.user.User;
 import org.apache.servicecomb.fence.authentication.user.UserRepository;
@@ -38,12 +40,13 @@ public class JDBCUserDetailsManager implements UserDetailsManager {
 
   @Override
   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-    User info = userRepository.selectUserByUsername(username);
+    User info = userRepository.selectUserByUsername(username).block();
     if (info == null) {
       throw new UsernameNotFoundException("");
     }
 
-    return new JDBCUserDetails(info, roleRepository.selectRolesByUsername(username));
+    return new JDBCUserDetails(info, new HashSet<>(roleRepository.selectRolesByUsername(username)
+        .collectList().block()));
   }
 
   @Override
