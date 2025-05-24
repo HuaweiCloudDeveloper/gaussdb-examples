@@ -1,26 +1,31 @@
 package org.apache.servicecomb.fence.authentication.user;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Column;
-import org.springframework.data.relational.core.mapping.Table;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-@Table("t_users")
+@Entity
+@Table(name = "t_users")
 public class User {
   @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
 
-  @Column("user_name")
+  @Column(name = "user_name")
   private String userName;
 
   private String password;
 
-  @Column("account_non_expired")
+  @Column(name = "account_non_expired")
   private boolean accountNonExpired;
 
-  @Column("account_non_locked")
+  @Column(name = "account_non_locked")
   private boolean accountNonLocked;
 
-  @Column("credentials_non_expired")
+  @Column(name = "credentials_non_expired")
   private boolean credentialsNonExpired;
 
   private boolean enabled;

@@ -1,9 +1,9 @@
 package org.apache.servicecomb.fence.authentication.user;
 
-import org.springframework.data.jdbc.repository.query.Query;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
-public interface UserRepository extends CrudRepository<User, String> {
-  @Query("select * from t_users where user_name = :userName")
+public interface UserRepository extends JpaRepository<User, String> {
+  @Query("select u from User u where userName = ?1")
   User selectUserByUsername(String userName);
 }

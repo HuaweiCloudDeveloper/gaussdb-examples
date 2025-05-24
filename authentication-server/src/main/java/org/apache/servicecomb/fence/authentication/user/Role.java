@@ -1,18 +1,23 @@
 package org.apache.servicecomb.fence.authentication.user;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Column;
-import org.springframework.data.relational.core.mapping.Table;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-@Table("t_roles")
+@Entity
+@Table(name = "t_roles")
 public class Role {
   @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
 
-  @Column("role_name")
+  @Column(name = "role_name")
   private String roleName;
 
-  @Column("user_name")
+  @Column(name = "user_name")
   private String userName;
 
   public long getId() {

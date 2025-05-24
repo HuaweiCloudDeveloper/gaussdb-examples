@@ -58,3 +58,12 @@ spring:
     username: ${DB_USERNAME:GaussdbExamples}
     password: ${DB_PASSWORD:Gaussdb-Examples-123}
     driver-class-name: com.huawei.gaussdb.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+# will auto detect Dialect by datasource properties
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.community.dialect.GaussDBDialect
+#        show_sql: true
+#        format_sql: true
