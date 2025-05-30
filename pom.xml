@@ -99,6 +99,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-logging</artifactId>
           </exclusion>
+          <exclusion>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+          </exclusion>
         </exclusions>
         <version>3.3.12</version>
       </dependency>
@@ -118,6 +122,11 @@
         <groupId>com.huaweicloud.gaussdb</groupId>
         <artifactId>gaussdbjdbc</artifactId>
         <version>506.0.0.b058</version>
+      </dependency>
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>druid-spring-boot-3-starter</artifactId>
+        <version>1.2.23</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
