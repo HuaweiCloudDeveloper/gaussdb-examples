@@ -65,39 +65,6 @@
 
       <!-- spring data r2dbc -->
       <dependency>
-        <groupId>org.springframework.boot.starter</groupId>
-        <artifactId>spring-boot-starter-data-r2dbc</artifactId>
-        <exclusions>
-          <exclusion>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-logging</artifactId>
-          </exclusion>
-        </exclusions>
-        <version>3.5.1</version>
-      </dependency>
-      <dependency>
-        <groupId>org.springframework.data</groupId>
-        <artifactId>spring-data-commons</artifactId>
-        <exclusions>
-          <exclusion>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-logging</artifactId>
-          </exclusion>
-        </exclusions>
-        <version>3.5.1</version>
-      </dependency>
-      <dependency>
-        <groupId>org.springframework.data</groupId>
-        <artifactId>spring-data-relational</artifactId>
-        <exclusions>
-          <exclusion>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-logging</artifactId>
-          </exclusion>
-        </exclusions>
-        <version>3.5.1</version>
-      </dependency>
-      <dependency>
         <groupId>com.huaweicloud.gaussdb</groupId>
         <artifactId>gaussdb-spring-data-r2dbc</artifactId>
         <exclusions>
@@ -106,7 +73,7 @@
             <artifactId>spring-boot-starter-logging</artifactId>
           </exclusion>
         </exclusions>
-        <version>3.5.0</version>
+        <version>3.4.0</version>
       </dependency>
       <dependency>
         <groupId>com.huaweicloud.gaussdb</groupId>
