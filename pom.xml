@@ -71,7 +71,7 @@
             <artifactId>spring-boot-starter-logging</artifactId>
           </exclusion>
         </exclusions>
-        <version>3.4.0-SNAPSHOT</version>
+        <version>3.4.0</version>
       </dependency>
       <dependency>
         <groupId>com.huaweicloud.gaussdb</groupId>
